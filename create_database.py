@@ -1,12 +1,8 @@
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
-from pymilvus import connections
-from pymilvus.exceptions import MilvusException
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from uuid import uuid4
 import os
-import time
 import yaml
 
 # Load configuration

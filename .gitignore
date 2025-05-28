@@ -100,4 +100,4 @@ cython_debug/
 .vscode/
 
 # Custom folder
-faiss/
+faiss_index/
