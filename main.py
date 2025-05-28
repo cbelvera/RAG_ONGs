@@ -1,5 +1,5 @@
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import HuggingFacePipeline
 from langchain.chains import RetrievalQA
 from transformers import pipeline
@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 import yaml
 
 # Load configuration from config.yml
-with open("config.yml", "r") as file:
+with open("config.yml", "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 # Step 1: Load multilingual embedding model
@@ -56,7 +56,8 @@ qa_chain = RetrievalQA.from_chain_type(
 )
 
 # Step 7: Ask your question!
-query = config["query"]
+#query = config["query"]
+query = input("❓ Introduce tu pregunta: ")
 
 response = qa_chain({"query": query})
 

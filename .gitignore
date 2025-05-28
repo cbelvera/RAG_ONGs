@@ -101,3 +101,7 @@ cython_debug/
 
 # Custom folder
 faiss_index/
+
+# Entornos virtuales específicos de este proyecto
+rag_env/
+clean_env/
