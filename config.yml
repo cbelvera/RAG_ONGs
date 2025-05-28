@@ -1,0 +1,34 @@
+# Model configuration
+model:
+  name: "bigscience/bloom-560m"
+  task: "text-generation"
+  max_new_tokens: 256
+  temperature: 0.7
+  do_sample: false
+
+# Embedding model configuration
+embedding:
+  name: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+# Retriever configuration
+retriever:
+  k: 3  # Number of top documents to retrieve
+
+# Question to ask
+query: >
+  ¿Qué criterios utiliza el Tribunal Supremo y las Audiencias Provinciales
+  para diferenciar entre un discurso amparado por la libertad de expresión
+  y un discurso que constituye delito de odio según el artículo 510 del Código Penal?
+
+# Prompt template (optional to override default)
+prompt_template: |
+  You are a legal assistant specialized in Spanish criminal law, assisting a judge. The user will ask you questions based on court rulings extracted from legal summaries (“cápsulas informativas”), which are provided in the following context:
+
+  {context}
+
+  Use only the information provided in the context to answer — do not make up facts. If the answer is not in the context, respond: "No se menciona en el documento."
+
+  Respond clearly, concisely, and precisely, using formal but accessible legal language, as a legal expert would. Do not include opinions or speculation.
+
+  Question:
+  {question}
